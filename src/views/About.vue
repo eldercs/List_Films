@@ -45,7 +45,7 @@
             :key="index"
             class="about__film-actors"
             >{{ actor
-            }}<span v-if="index != film.actors.length - 1">, </span></span
+            }}<span v-if="index !== film.actors.length - 1">, </span></span
           >
         </p>
         <p v-if="film.description != null" class="about__film-description">
@@ -73,7 +73,7 @@ export default {
     };
   },
   async created() {
-    if (this.$store.state.films.length == 0 || this.$store.state.films.length == undefined) {
+    if (this.$store.state.films.length === 0 || this.$store.state.films.length === undefined) {
       await this.$store.dispatch("addOneFilm", this.id)
       this.film = this.$store.state.film
     } else {
